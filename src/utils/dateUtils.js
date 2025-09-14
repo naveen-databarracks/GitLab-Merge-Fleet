@@ -33,7 +33,9 @@ export const formatDistanceToNow = (dateString) => {
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', {
+  // Use toLocaleString instead of toLocaleDateString so that time options
+  // like hour and minute are respected across environments.
+  return date.toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
